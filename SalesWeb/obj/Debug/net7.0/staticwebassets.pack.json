@@ -53,6 +53,10 @@
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
+      "Id": "C:\\Users\\viniciusm\\Documents\\Course C#\\SalesWeb\\SalesWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-name.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-name.css"
+    },
+    {
       "Id": "C:\\Users\\viniciusm\\Documents\\Course C#\\SalesWeb\\SalesWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },

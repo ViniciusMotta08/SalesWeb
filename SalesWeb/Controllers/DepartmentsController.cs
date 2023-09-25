@@ -22,9 +22,17 @@ namespace SalesWeb.Controllers
         // GET: Departments
         public async Task<IActionResult> Index()
         {
-              return _context.Department != null ? 
-                          View(await _context.Department.ToListAsync()) :
-                          Problem("Entity set 'SalesWebContext.Department'  is null.");
+            try
+            {
+                return _context.Department != null ?
+                            View(await _context.Department.ToListAsync()) :
+                            Problem("Entity set 'SalesWebContext.Department'  is null.");
+            }
+            catch(Exception ex)
+            {
+                
+            }
+            return null;
         }
 
         // GET: Departments/Details/5
@@ -52,8 +60,6 @@ namespace SalesWeb.Controllers
         }
 
         // POST: Departments/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name")] Department department)
@@ -84,8 +90,6 @@ namespace SalesWeb.Controllers
         }
 
         // POST: Departments/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Department department)

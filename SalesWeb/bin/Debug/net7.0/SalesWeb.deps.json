@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v7.0": {
       "SalesWeb/1.0.0": {
         "dependencies": {
+          "Microsoft.Data.SqlClient": "5.1.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.11",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.11",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "7.0.10"

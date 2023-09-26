@@ -1,12 +1,15 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SalesWeb.Data;
+using SalesWeb.Services;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<SalesWebContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SalesWebContext")));
 
-builder.Services.AddScoped<SeedingService>();
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<SeedingService>();
+builder.Services.AddScoped<SellerService>();
+//builder.Services.AddRazorPages();
 
 var app = builder.Build();
 

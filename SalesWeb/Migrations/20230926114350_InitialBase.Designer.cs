@@ -12,8 +12,8 @@ using SalesWeb.Data;
 namespace SalesWeb.Migrations
 {
     [DbContext(typeof(SalesWebContext))]
-    [Migration("20230925190856_OtherEntities")]
-    partial class OtherEntities
+    [Migration("20230926114350_InitialBase")]
+    partial class InitialBase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -66,7 +66,7 @@ namespace SalesWeb.Migrations
 
                     b.HasIndex("SellerId");
 
-                    b.ToTable("SalesRecords");
+                    b.ToTable("SalesRecord");
                 });
 
             modelBuilder.Entity("SalesWeb.Models.Seller", b =>

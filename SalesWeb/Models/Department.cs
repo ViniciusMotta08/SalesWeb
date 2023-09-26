@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using SalesWeb.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SalesWeb.Models
 {

@@ -1,7 +1,12 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.HttpsPolicy;
+using System.Globalization;
 using SalesWeb.Data;
 using SalesWeb.Services;
+using Microsoft.Extensions.Localization;
+
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<SalesWebContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SalesWebContext")));
@@ -15,6 +20,18 @@ builder.Services.AddScoped<DepartmentService>();
 
 var app = builder.Build();
 
+app.Services.CreateScope().ServiceProvider.GetRequiredService<SeedingService>().Seed();
+
+var enUS = new CultureInfo("en-US");
+var localizationOptions = new RequestLocalizationOptions
+{
+    DefaultRequestCulture = new RequestCulture(enUS),
+    SupportedCultures = new List<CultureInfo> { enUS },
+    SupportedUICultures = new List<CultureInfo> { enUS }
+};
+
+app.UseRequestLocalization(localizationOptions);
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -27,13 +44,6 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-
-using (var scope = app.Services.CreateScope())
-{
-    var services = scope.ServiceProvider;
-    var seedingService = services.GetRequiredService<SeedingService>();
-    seedingService.Seed();
-}
 
 app.MapControllerRoute(
 name: "default",

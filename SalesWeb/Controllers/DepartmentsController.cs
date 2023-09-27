@@ -28,9 +28,9 @@ namespace SalesWeb.Controllers
                             View(await _context.Department.ToListAsync()) :
                             Problem("Entity set 'SalesWebContext.Department'  is null.");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                
+
             }
             return null;
         }
@@ -154,14 +154,14 @@ namespace SalesWeb.Controllers
             {
                 _context.Department.Remove(department);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool DepartmentExists(int id)
         {
-          return (_context.Department?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Department?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

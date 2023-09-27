@@ -12,8 +12,8 @@ using SalesWeb.Data;
 namespace SalesWeb.Migrations
 {
     [DbContext(typeof(SalesWebContext))]
-    [Migration("20230926114350_InitialBase")]
-    partial class InitialBase
+    [Migration("20230927120913_MigrationAll")]
+    partial class MigrationAll
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

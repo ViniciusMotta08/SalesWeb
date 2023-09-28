@@ -26,14 +26,22 @@ namespace SalesWeb.Controllers
 
         public async Task<IActionResult> Create()
         {
-            var departments = await _departmentService.FindAllAsync();
-            var viewModel = new SellerFormViewModel { Departments = departments };
-            return View(viewModel);
+            try
+            {
+                var departments = await _departmentService.FindAllAsync();
+                var viewModel = new SellerFormViewModel { Departments = departments };
+                return View(viewModel);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Seller seller)
+        public async Task<IActionResult> Salvar(Seller seller)
         {
             if (!ModelState.IsValid)
             {

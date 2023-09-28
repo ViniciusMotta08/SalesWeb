@@ -21,7 +21,7 @@ builder.Services.AddScoped<SalesRecordService>();
 
 var app = builder.Build();
 
-app.Services.CreateScope().ServiceProvider.GetRequiredService<SeedingService>().Seed();
+//app.Services.CreateScope().ServiceProvider.GetRequiredService<SeedingService>().Seed();
 
 var enUS = new CultureInfo("en-US");
 var localizationOptions = new RequestLocalizationOptions
